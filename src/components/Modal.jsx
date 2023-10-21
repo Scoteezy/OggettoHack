@@ -17,7 +17,7 @@ function Modal({ isOpen, onClose, id }) {
   // const [eventMembers, setEventMembers] = useState([]);
   const fetchSpeakers = async() =>{
     try{
-      const response = await fetch(`${API_URL}/speakers`,{
+      const response = await fetch(`/api/speakers`,{
           headers:{
               'access': localStorage.getItem('AccessToken')
           }
@@ -37,7 +37,7 @@ function Modal({ isOpen, onClose, id }) {
     try{
       console.log("id is " + speakerId, id)
       console.log(JSON.stringify({id: speakerId}))
-      const response = await fetch (`${API_URL}/meetup/${id}/assign`,{
+      const response = await fetch (`/api/meetup/${id}/assign`,{
         method: "POST",
         headers:{
           "Content-Type": "application/json",

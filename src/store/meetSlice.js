@@ -5,7 +5,7 @@ export const fetchAllEvents = createAsyncThunk(
     'events/fetchEvents',
     async function (_,{rejectWithValue}){
         try{
-            const response = await fetch(`${API_URL}/meetups`,{
+            const response = await fetch(`/api/meetups`,{
                 headers:{
                     'access': localStorage.getItem('AccessToken')
                 }
@@ -26,7 +26,7 @@ export const addNewEvent = createAsyncThunk(
     'users/addNewEvent',
     async function(title,{rejectWithValue,dispatch}){
         try{
-            const response = await fetch(`${API_URL}/meetup/create`,{
+            const response = await fetch(`/api/meetup/create`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export const changeEvent = createAsyncThunk(
     'events/changeEvent',
     async function(event,{rejectWithValue,dispatch}){
         try {
-            const response = await fetch(`${API_URL}/meetup/${event.id}/update`,{
+            const response = await fetch(`/api/meetup/${event.id}/update`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

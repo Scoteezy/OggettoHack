@@ -4,7 +4,7 @@ export const setUserAuth = createAsyncThunk(
     'users/setUserAuth',
     async function ({login,password},{rejectWithValue,dispatch}){
         try{
-            const response = await fetch(`${API_URL}/auth/login`,{
+            const response = await fetch(`/api/auth/login`,{
                 method: 'POST',
                 headers:{
                     'Content-Type' : 'application/json;charset=utf-8',
@@ -23,7 +23,7 @@ export const setUserAuth = createAsyncThunk(
                 console.log({headers:{
                     'access': localStorage.getItem('AccessToken')
                 }})
-                const response = await fetch(`${API_URL}/user/profile`,{
+                const response = await fetch(`/api/user/profile`,{
                     headers:{
                         'access': localStorage.getItem('AccessToken')
                     }
@@ -46,7 +46,7 @@ export const registerUser = createAsyncThunk(
     'users/registerUser',
     async function ({login,password,name,surname},{rejectWithValue,dispatch}){
         try{
-            const response = await fetch(`${API_URL}/auth/signup`,{
+            const response = await fetch(`/api/auth/signup`,{
                 method: 'POST',
                 headers:{
                     'Content-Type' : 'application/json;charset=utf-8',
@@ -65,7 +65,7 @@ export const registerUser = createAsyncThunk(
                 console.log({headers:{
                     'access': localStorage.getItem('AccessToken')
                 }})
-                const response = await fetch(`${API_URL}/user/profile`,{
+                const response = await fetch(`/api/user/profile`,{
                     headers:{
                         'access': localStorage.getItem('AccessToken')
                     }

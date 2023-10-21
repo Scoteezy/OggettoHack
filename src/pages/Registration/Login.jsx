@@ -8,6 +8,25 @@ import { ButtonReg } from "../../components/Button";
 import { setUserAuth } from "../../store/authSlice";
 import { useState } from "react";
 
+const getGoogleUrl = () => {
+  const rootUrl = `https://accounts.google.com/o/oauth2/v2/auth`;
+
+  const options = {
+    client_id: "410653277390-jko8q3ep2kih0nkj7t2cjnuak32g707f.apps.googleusercontent.com",
+    redirect_uri: "https://pepper-coding.ru/api/google/login",
+    scope: ["profile", "email"].join(" "),
+    //access_type: "offline",
+    response_type: "code",
+    //prompt: "consent",
+    state: "http://localhost:5173",
+  };
+
+  const qs = new URLSearchParams(options);
+
+  return `${rootUrl}?${qs.toString()}`;
+};
+
+
 function Login() {
   const dispatch = useDispatch();
   const [login,setLogin] = useState('');
@@ -45,6 +64,7 @@ function Login() {
               <ButtonReg onClick={()=>{dispatch(setUserAuth({login, password}));console.log('asdasd')}} text="Войти" />
             </div>
             <a href="/registration" style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>Регистрация</a>
+            <a href={getGoogleUrl()}>Signin with google</a>
           </div>
         </div>
       </>
