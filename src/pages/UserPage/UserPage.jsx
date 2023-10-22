@@ -108,9 +108,17 @@ const buttonCreate = {
 const meetingCardStyle = {
   textDecoration: 'none',
   color: 'inherit',
+<<<<<<< HEAD
   backgroundColor: 'rgba(245, 245, 245, 0.4)',
   border: '1px solid #e1e1e1',
   borderRadius: '8px',
+=======
+  backgroundColor: 'white',
+  border: '1px solid #e1e1e1',
+  boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
+  borderRadius: '8px',
+
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   boxSizing: 'border-box',
   margin: '10px',
   padding: '1rem',
@@ -126,7 +134,11 @@ const meetingContainerStyle = {
 };
 
 const meetingsStyle = {
+<<<<<<< HEAD
   backgroundColor: 'rgba(245, 245, 245, 0.4)',
+=======
+  backgroundColor: 'rgba(235, 235, 235, 0.2)',
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   padding: '20px',
   borderRadius: '10px',
 };

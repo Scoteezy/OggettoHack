@@ -6,7 +6,10 @@ import imgLogoDesktopBack from "../../img/oggetto-flat-logo-back-big.jpg";
 import * as colors from '../../img/colors.jsx';
 import Modal from '../../components/Modal';
 import ModalForCreation from '../../components/ModalForCreation';
+<<<<<<< HEAD
 import ModalForDelete from '../../components/ModalForDelete';
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchAllEvents } from '../../store/meetSlice';
 
@@ -29,7 +32,10 @@ function ModeratorPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreationModalOpen, setIsCreationModalOpen] = useState(false);
+<<<<<<< HEAD
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   const [modalId, setModalId] = useState();
 
   // Function to open the modal for editing
@@ -43,20 +49,26 @@ function ModeratorPage() {
     setIsCreationModalOpen(true);
   };
 
+<<<<<<< HEAD
   const openDeleteModal = (id) => {
     setModalId(id);
     setIsDeleteModalOpen(true);
   };
 
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   // Function to close the creation modal
   const closeCreationModalOpen = () => {
     setIsCreationModalOpen(false);
   };
 
+<<<<<<< HEAD
   const closeDeleteModalOpen = () => {
     setIsDeleteModalOpen(false);
   };
 
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   // Function to close the editing modal
   const closeModal = () => {
     setIsModalOpen(false);
@@ -112,6 +124,7 @@ function ModeratorPage() {
             </a>
           </div>
           {filteredMeetings.map((meeting) => (
+<<<<<<< HEAD
             <><div key={meeting.id} style={{ ...meetingDivStyle }} onClick={() => openModal(meeting.id)}>
             <a
               style={{
@@ -128,6 +141,22 @@ function ModeratorPage() {
             
           </div>
           <button key={meeting.id} onClick={() => openDeleteModal(meeting.id)} style={buttonDelete}>Удалить</button></>
+=======
+            <div key={meeting.id} style={{ ...meetingDivStyle }} onClick={() => openModal(meeting.id)}>
+              <a
+                style={{
+                  textDecoration: 'none',
+                  fontSize: '22px',
+                  cursor: 'pointer',
+                }}
+              >
+                <span style={{ fontWeight: 'bold' }}>{meeting.title}</span>
+              </a>
+              <p />
+              <a style={{ fontSize: '22px' }}>{' -> '}{meeting.description}<p />{' -> '}</a>
+              <a style={{ fontSize: '22px' }}>{meeting.speaker ? meeting?.speaker?.profile?.first_name + ' ' + meeting?.speaker?.profile?.last_name : ''}</a>
+            </div>
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
           ))}
           {activeEvents && showAddButton && (
             <div style={buttonAddStyle}>
@@ -140,11 +169,14 @@ function ModeratorPage() {
         isOpen={isCreationModalOpen}
         onClose={closeCreationModalOpen}
       />
+<<<<<<< HEAD
       <ModalForDelete
         isOpen={isDeleteModalOpen}
         onClose={closeDeleteModalOpen}
         id={modalId}
       />
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
@@ -168,6 +200,7 @@ const buttonCreate = {
   outline: 'none',
 };
 
+<<<<<<< HEAD
 const buttonDelete = {
   borderRadius: '2rem',
   backgroundColor: colors.WHITE,
@@ -182,6 +215,8 @@ const buttonDelete = {
   outline: 'none',
 };
 
+=======
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
 const buttonAddStyle = {
   paddingTop: '15px',
   fontWeight: 'bold',

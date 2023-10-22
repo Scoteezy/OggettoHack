@@ -62,7 +62,11 @@ function MainPage() {
           <div style={meetingsStyle}>
             <div
               style={{
+<<<<<<< HEAD
                 backgroundColor: 'rgba(235, 235, 235, 0)',
+=======
+                backgroundColor: 'rgba(235, 235, 235, 0.2)',
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
                 fontSize: '26px',
                 fontWeight: 'bold',
                 paddingLeft: '10px',
@@ -92,11 +96,37 @@ function MainPage() {
   );
 }
 
+<<<<<<< HEAD
+=======
+const buttonCreate = {
+  borderRadius: '2rem',
+  backgroundColor: colors.YELLOW,
+  border: 'none',
+  height: '2.4rem',
+  width: '7rem',
+  fontFamily: 'Montserrat, sans-serif',
+  fontWeight: '600',
+  fontSize: '1.2rem',
+  paddingRight: '-1rem',
+  cursor: 'pointer',
+  outline: 'none',
+};
+
+const buttonAddStyle = {
+  paddingTop: '15px',
+  fontWeight: 'bold',
+  cursor: 'pointer'
+};
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
 
 const meetingCardStyle = {
   textDecoration: 'none',
   color: 'inherit',
+<<<<<<< HEAD
   backgroundColor: 'rgba(245, 245, 245, 0.4)',
+=======
+  backgroundColor: 'white',
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   border: '1px solid #e1e1e1',
   boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
   borderRadius: '8px',
@@ -115,7 +145,11 @@ const meetingContainerStyle = {
 };
 
 const meetingsStyle = {
+<<<<<<< HEAD
   backgroundColor: 'rgba(245, 245, 245, 0.4)',
+=======
+  backgroundColor: 'rgba(235, 235, 235, 0.2)',
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
   padding: '20px',
   borderRadius: '10px',
 };

@@ -26,17 +26,25 @@ export const fetchAllEvents = createAsyncThunk(
 
 export const addNewEvent = createAsyncThunk(
     'users/addNewEvent',
+<<<<<<< HEAD
     async function(title, {rejectWithValue, dispatch}){
+=======
+    async function(title,description,guests,speakers,speakers_id,{rejectWithValue,dispatch}){
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
         try{
             const response = await fetch(`/api/meetup/create`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8',
                 },
+<<<<<<< HEAD
                 credentials: "include",
                 body: JSON.stringify({
                     title: title
                 })
+=======
+                body: JSON.stringify({title:title, description:description, guests:guests, speakers:speakers, speakers_id:speakers_id})
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
             })
 
             if(!response.ok){
@@ -78,6 +86,7 @@ export const changeEvent = createAsyncThunk(
     'events/changeEvent',
     async function(event,{rejectWithValue,dispatch}){
         try {
+            console.log(event)
             const response = await fetch(`/api/meetup/${event.id}/update`,{
                 method: 'PATCH',
                 headers: {

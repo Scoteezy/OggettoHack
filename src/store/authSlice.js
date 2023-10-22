@@ -8,8 +8,14 @@ export const setUserAuth = createAsyncThunk(
                 method: 'POST',
                 headers:{
                     'Content-Type' : 'application/json;charset=utf-8',
+                
                 },
                 credentials: "include",
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
                 body: JSON.stringify({login:login,password: password })
             })
 
