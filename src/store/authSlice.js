@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { API_URL } from "../services";
+
 export const setUserAuth = createAsyncThunk(
     'users/setUserAuth',
     async function ({login,password},{rejectWithValue,dispatch}){
@@ -9,30 +9,28 @@ export const setUserAuth = createAsyncThunk(
                 headers:{
                     'Content-Type' : 'application/json;charset=utf-8',
                 },
-
-
+                credentials: "include",
                 body: JSON.stringify({login:login,password: password })
             })
+
             if(!response.ok){
-            throw new Error('Server Error!');
+                throw new Error('Server Error!');
             }
+
             const data = await response.json();
-            // console.log(data.data.tokens.access)
-            localStorage.setItem('AccessToken', data.data.tokens.access);
+            
             if(data.status=='200'){
-                console.log({headers:{
-                    'access': localStorage.getItem('AccessToken')
-                }})
-                const response = await fetch(`/api/user/profile`,{
-                    headers:{
-                        'access': localStorage.getItem('AccessToken')
-                    }
+                const response = await fetch(`/api/user/profile`, {
+                    method: 'GET',
+                    credentials: "include",
                 });
+
                 if(!response.ok){
                     throw new Error('Server Error!');
                 }
+
                 const data = await response.json();
-                console.log(data.data.user)
+                
                 dispatch(setAuth(data.data.user))
             }
         }
@@ -51,50 +49,49 @@ export const registerUser = createAsyncThunk(
                 headers:{
                     'Content-Type' : 'application/json;charset=utf-8',
                 },
-
-
+                credentials: "include",
                 body: JSON.stringify({login:login,password: password,first_name:name, last_name:surname })
             })
+
             if(!response.ok){
-            throw new Error('Server Error!');
+                throw new Error('Server Error!');
             }
+
             const data = await response.json();
-            // console.log(data.data.tokens.access)
-            localStorage.setItem('AccessToken', data.data.tokens.access);
+
             if(data.status=='201'){
-                console.log({headers:{
-                    'access': localStorage.getItem('AccessToken')
-                }})
-                const response = await fetch(`/api/user/profile`,{
-                    headers:{
-                        'access': localStorage.getItem('AccessToken')
-                    }
+                const response = await fetch(`/api/user/profile`, {
+                    method: 'GET',
+                    credentials: "include",
                 });
+
                 if(!response.ok){
                     throw new Error('Server Error!');
                 }
+
                 const data = await response.json();
-                console.log(data.data.user)
+                
                 dispatch(setAuth(data.data.user))
             }
         }
         catch(error){
             return rejectWithValue(error.message);
         }
-
     }
+)
 
-    )
 const setError = (state,action)=>{
     state.status = 'rejected';
     state.error = action.payload
-  }
-  const initialState = {
+}
+
+const initialState = {
     auth: false, //TYT
     userInfo:{},
     status: null,
     error:null
 }
+
 const authSlice = createSlice({
 	name: 'auth',
 	initialState,

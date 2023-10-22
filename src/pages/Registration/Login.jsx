@@ -64,7 +64,7 @@ function Login() {
               <ButtonReg onClick={()=>{dispatch(setUserAuth({login, password}));console.log('asdasd')}} text="Войти" />
             </div>
             <a href="/registration" style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>Регистрация</a>
-            <a href={getGoogleUrl()}>Signin with google</a>
+            <a href={getGoogleUrl()} style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}>Signin with google</a>
           </div>
         </div>
       </>

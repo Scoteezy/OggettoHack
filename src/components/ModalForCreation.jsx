@@ -4,7 +4,11 @@ import { useDispatch } from 'react-redux';
 import { addNewEvent } from '../store/meetSlice';
 function ModalForCreation({ isOpen, onClose }) {
   const dispatch = useDispatch();
-  const [eventName,setEventName]=useState('');
+  const [eventName,setEventName]=useState('имя');
+  const [eventDescription,setEventDescription]=useState('описание');
+  const [eventGuests,setEventGuests]=useState([]);
+  const [eventSpeakers,setEventSpeakers]=useState('спикер');
+  const [eventSpeakerId,setEventSpeakerId]=useState('1');
   if (!isOpen) {
     return null;
   }
@@ -14,11 +18,20 @@ function ModalForCreation({ isOpen, onClose }) {
         <div className="modal-header">
             <h3>Создать ивент</h3>
           <input type="text" onChange={(e)=>setEventName(e.target.value)} value={eventName} />
+          <input type="text" onChange={(e)=>setEventDescription(e.target.value)} value={eventDescription} />
+          <input type="text" onChange={(e)=>setEventGuests(e.target.value)} value={eventGuests} />
+          <input type="text" onChange={(e)=>setEventSpeakers(e.target.value)} value={eventSpeakers} />
+          <input type="text" onChange={(e)=>setEventSpeakerId(e.target.value)} value={eventSpeakerId} />
+          
+          
           <button onClick={onClose} className="close-button">
             Закрыть
           </button>
         </div>
-        <button onClick={()=>dispatch(addNewEvent(eventName))}>Создать</button>
+        <button onClick={()=>{
+          dispatch(addNewEvent(eventName, eventDescription, eventGuests, eventSpeakers, eventSpeakerId ))
+          onClose()
+        }}>Создать</button>
       </div>
     </div>
   );

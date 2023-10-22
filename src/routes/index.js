@@ -8,16 +8,18 @@ import Login from "../pages/Registration/Login";
 export const moderRoutes = [
     {path: '/', element: MainPage},
     {path: '/moder', element: ModeratorPage},
-    {path: '/userpage',element: UserPage  },
+    {path: '/meetup/:id', element: UserPage},
     
 
 ]
 export const publicRoutes = [
     {path: '/', element: MainPage},
     {path: '/registration', element: Registration},
-    {path: '/login', element: Login}
+    {path: '/login', element: Login},
+    {path: '/meetup/:id', element: UserPage},
 ]
 export const userRoutes = [
     {path: '/', element: MainPage},
-    {path: '/userpage',element: UserPage  }
+    {path: '/userpage',element: UserPage  },
+    {path: '/meetup/:id', element: UserPage},
 ]
