@@ -12,6 +12,7 @@
   }
   
   .modal {
+    position: relative;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -52,6 +53,9 @@
     margin-right: 20px;
   }
   .close-button {
+    position: absolute;
+    top: 10px; /* Выберите желаемое расстояние сверху */
+    right: 10px; /* Выберите желаемое расстояние справа */
     background: none;
     border: none;
     cursor: pointer;

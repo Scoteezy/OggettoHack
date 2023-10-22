@@ -16,17 +16,17 @@ function ModeratorPage() {
   const [showAddButton, setShowAddButton] = useState(true);
   const meetings = useSelector(store => store.meet.events);
 
-  useEffect(() => {
-    dispatch(fetchAllEvents());
-  }, [dispatch]);
-
   const toggleActiveEvents = () => {
     setActiveEvents(!activeEvents);
   };
 
+  useEffect(() => {
+    dispatch(fetchAllEvents());
+  }, [dispatch]);
+
   // Update filteredMeetings based on the activeEvents state
   const filteredMeetings = meetings.filter((meeting) => meeting.active === activeEvents);
-
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCreationModalOpen, setIsCreationModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -112,22 +112,24 @@ function ModeratorPage() {
             </a>
           </div>
           {filteredMeetings.map((meeting) => (
-            <><div key={meeting.id} style={{ ...meetingDivStyle }} onClick={() => openModal(meeting.id)}>
-            <a
-              style={{
-                textDecoration: 'none',
-                fontSize: '22px',
-                cursor: 'pointer',
-              }}
-            >
-              <span style={{ fontWeight: 'bold' }}>{meeting.title}</span>
-            </a>
-            <p />
-            <a style={{ fontSize: '22px' }}>{' -> '}{meeting.description}<p />{' -> '}</a>
-            <a style={{ fontSize: '22px' }}>{meeting.speaker ? meeting?.speaker?.profile?.first_name + ' ' + meeting?.speaker?.profile?.last_name : ''}</a>
-            
-          </div>
-          <button key={meeting.id} onClick={() => openDeleteModal(meeting.id)} style={buttonDelete}>Удалить</button></>
+            <>
+            <div key={meeting.id} style={{ ...meetingDivStyle }} onClick={() => openModal(meeting.id)}>
+              <a
+                style={{
+                  textDecoration: 'none',
+                  fontSize: '22px',
+                  cursor: 'pointer',
+                }}
+              >
+                <span style={{ fontWeight: 'bold' }}>{meeting.title}</span>
+              </a>
+              <p />
+              <a style={{ fontSize: '22px' }}>{' -> '}{meeting.description}<p />{' -> '}</a>
+              <a style={{ fontSize: '22px' }}>{meeting.speaker ? meeting?.speaker?.profile?.first_name + ' ' + meeting?.speaker?.profile?.last_name : ''}</a>
+              
+            </div>
+            <button key={meeting.id} onClick={() => openDeleteModal(meeting.id)} style={buttonDelete}>Удалить</button>
+            </>
           ))}
           {activeEvents && showAddButton && (
             <div style={buttonAddStyle}>
@@ -170,16 +172,17 @@ const buttonCreate = {
 
 const buttonDelete = {
   borderRadius: '2rem',
-  backgroundColor: colors.WHITE,
-  border: "2px solid #000",
-  height: '2.4rem',
-  width: '7rem',
+  backgroundColor: '#ff8473',
+  border: 'none',
+  height: '1.6rem',
+  width: '4.5rem',
   fontFamily: 'Montserrat, sans-serif',
   fontWeight: '600',
-  fontSize: '1.2rem',
+  fontSize: '0.8rem',
   paddingRight: '-1rem',
   cursor: 'pointer',
   outline: 'none',
+  marginTop:'0.3rem',
 };
 
 const buttonAddStyle = {
@@ -201,8 +204,6 @@ const meetingDivStyle = {
   borderRadius: '5px',
   height: 'auto'
 };
-
-
 
 const meetingsStyle = {
   backgroundColor: 'rgba(999, 999, 999, 0.5',

@@ -16,20 +16,38 @@ function ModalForDelete({ isOpen, onClose, id }) {
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <div className="modal-header">
-            <h3>Удалить ивент</h3>
-          
-            <button onClick={onClose} className="close-button">
+      <button onClick={onClose} className="close-button">
                 Закрыть
             </button>
+        <div className="modal-header">
+            <h3>Удалить ивент?</h3>
+          
+            
         </div>
         <button onClick={()=>{
           dispatch(deleteEvent(event))
           onClose()
-        }}>Удалить</button>
+        }} style={buttonCreateeStyle}>Удалить</button>
       </div>
     </div>
   );
 }
+
+
+
+const buttonCreateeStyle = {
+  borderRadius: '2rem',
+    backgroundColor: '#ff3403',
+    border: 'none',
+    height: '2.3rem',
+    width: '7rem',
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: '600',
+    fontSize: '1.2rem',
+    paddingRight: '-1rem',
+    cursor: 'pointer',
+    outline: 'none',
+    marginTop: '0.3rem'
+};
 
 export default ModalForDelete;

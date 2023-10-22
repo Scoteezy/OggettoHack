@@ -22,6 +22,8 @@ function MainPage() {
   };
 
   const filteredMeetings = meetings.filter(meeting => meeting.active === activeEvents);
+  const userRole = 0;
+  const isUserAdmin = userRole === 'user';
 
   return (
     <>
@@ -44,9 +46,15 @@ function MainPage() {
           </picture>
         </div>
         <div>
+        {isUserAdmin ? (
+          <Link to="/registration"> 
+            <Button text="Редактирование" />
+          </Link>
+        ) : (
           <Link to="/registration">
             <Button text="Регистрация" />
           </Link>
+        )}
         </div>
       </header>
 

@@ -6,7 +6,7 @@ import imgLogoDesktop from "../../img/oggetto-logo_tonal-hor-rus.png";
 import imgLogoDesktopBack from "../../img/oggetto-flat-logo-back-big.jpg";
 import * as colors from '../../img/colors.jsx';
 
-import { fetchAllEvents } from '../../store/meetSlice';
+import { fetchAllEvents, signupEvent } from '../../store/meetSlice';
 import { useSelector, useDispatch } from 'react-redux';
 
 function UserPage() {
@@ -78,7 +78,7 @@ function UserPage() {
                         ? `${selectedMeeting.speaker?.profile?.first_name} ${selectedMeeting.speaker?.profile?.last_name}`
                         : ''}
                     </span><p/>
-                    <button  style={buttonCreate}>Записаться</button>
+                    <button  style={buttonCreate} onClick={()=>dispatch(signupEvent(selectedMeeting))}>Записаться</button>
                   </div>
                 </div>
               </div>

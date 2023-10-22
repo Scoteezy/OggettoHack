@@ -53,6 +53,31 @@ export const addNewEvent = createAsyncThunk(
         }
     } 
 )
+
+export const signupEvent = createAsyncThunk(
+    'events/signupEvent',
+    async function(event,{rejectWithValue}){
+        try {
+            const response = await fetch(`/api/meetup/${event.id}/signup`,{
+                method: 'POST',
+                credentials: "include"
+            })
+
+            if (!response.ok){
+                if(response.status === 409) {
+                    alert("Вы уже записаны на эту встречу!")
+                }
+
+                throw new Error('Cannot signup task. Server Error!');
+            }
+
+            alert("Вы успешно записались на эту встречу!")
+        }
+        catch(error){
+            return rejectWithValue(error.message)
+        }
+    }
+)
  
 export const deleteEvent = createAsyncThunk(
     'events/deleteEvent',
