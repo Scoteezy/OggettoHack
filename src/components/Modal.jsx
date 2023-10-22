@@ -18,7 +18,6 @@ function Modal({isOpen, onClose, id}) {
     const fetchSpeakers = async () => {
         try {
             const response = await fetch(`/api/speakers`, {
-<<<<<<< HEAD
                 method: 'GET',
                 credentials: "include"
             })
@@ -33,25 +32,12 @@ function Modal({isOpen, onClose, id}) {
 
         } 
         catch (error) {
-=======
-                headers: {
-                    'access': localStorage.getItem('AccessToken')
-                },body: JSON.stringify({id: speakerId})
-            });
-            if (!response.ok) {
-                throw new Error('Server Error!');
-            }
-            const data = await response.json();
-            return Array.from(data.data.speakers);
-        } catch (error) {
->>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
             console.log(error);
         }
     }
 
     const changeSpeaker = async () => {
         try {
-<<<<<<< HEAD
             const response = await fetch(`/api/meetup/${id}/assign`, {
                 method: "POST",
                 headers: {
@@ -68,21 +54,6 @@ function Modal({isOpen, onClose, id}) {
             }
         } 
         catch (e) {
-=======
-            console.log("id is " + speakerId, id);
-            const response = await fetch(`/api/meetup/${id}/assign`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    'access': localStorage.getItem('AccessToken')
-                },
-                body: JSON.stringify({id: speakerId})
-            });
-            if (!response.ok) {
-                throw new Error('Server Error!');
-            }
-        } catch (e) {
->>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
             console.log(e);
         }
     }

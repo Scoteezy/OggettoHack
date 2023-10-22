@@ -28,14 +28,10 @@ function ModalForCreation({ isOpen, onClose }) {
             Закрыть
           </button>
         </div>
-<<<<<<< HEAD
         <button onClick={()=>{
           dispatch(addNewEvent(eventName, eventDescription, eventGuests, eventSpeakers, eventSpeakerId ))
           onClose()
         }}>Создать</button>
-=======
-        <button onClick={()=>dispatch(addNewEvent(eventName, eventDescription, eventGuests, eventSpeakers, eventSpeakerId ))}>Создать</button>
->>>>>>> 156c9caa1bf56cd336cd81b6e2be03eb23a4b3a1
       </div>
     </div>
   );
