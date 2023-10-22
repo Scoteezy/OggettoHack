@@ -24,7 +24,7 @@ export const fetchAllEvents = createAsyncThunk(
 )
 export const addNewEvent = createAsyncThunk(
     'users/addNewEvent',
-    async function(title,{rejectWithValue,dispatch}){
+    async function(title,description,guests,speakers,speakers_id,{rejectWithValue,dispatch}){
         try{
             const response = await fetch(`/api/meetup/create`,{
                 method: 'POST',
@@ -32,7 +32,7 @@ export const addNewEvent = createAsyncThunk(
                     'Content-Type': 'application/json',
                     'access': localStorage.getItem('AccessToken')
                 },
-                body: JSON.stringify({title:title})
+                body: JSON.stringify({title:title, description:description, guests:guests, speakers:speakers, speakers_id:speakers_id})
             })
             if (!response.ok){
                 throw new Error('Cannot add task. Server Error!');
@@ -51,6 +51,7 @@ export const changeEvent = createAsyncThunk(
     'events/changeEvent',
     async function(event,{rejectWithValue,dispatch}){
         try {
+            console.log(event)
             const response = await fetch(`/api/meetup/${event.id}/update`,{
                 method: 'PATCH',
                 headers: {

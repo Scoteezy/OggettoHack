@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://pepper-coding.ru",
+        target: "https://pepper-coding.ru/",
         changeOrigin: true
       }
     }
